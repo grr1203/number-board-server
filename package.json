@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec ts-node src/server.ts",
-    "febuild": "cd ad-board-frontend && npm run build && mkdir -p ../build && cp -r dist ../build/dist",
-    "build": "rm -r build || true && tsc && zip -r number-board.zip build node_modules ad-board.db init.js script.js start.bat"
+    "febuild": "cd ../number-board-frontend && npm run build && mkdir -p ../number-board-server/build && cp -r dist ../number-board-server/build/dist",
+    "build": "rm -r build || true && tsc && npm run febuild && zip -r number-board.zip build node_modules ad-board.db init.js script.js start.bat"
   },
   "author": "",
   "license": "MIT",
