@@ -1,0 +1,8 @@
+/node_modules
+.DS_Store
+
+src/build
+src/dist
+
+build
+number-board.zip
