@@ -47,7 +47,11 @@ app.put('/api/data', (req: any, res: Response) => {
   notice && (data.notice = notice);
 
   // 클라이언트들에게 SSE로 업데이트 알림
-  if (number1 || number2) req.SSEClients.forEach((client: any) => client.write('data: refresh\n\n'));
+  if (number1 || number2) {
+    if (number1 === '-' || number2 === '-')
+      req.SSEClients.forEach((client: any) => client.write('data: refreshNotice\n\n'));
+    else req.SSEClients.forEach((client: any) => client.write('data: refresh\n\n'));
+  }
   if (notice) req.SSEClients.forEach((client: any) => client.write('data: refreshNotice\n\n'));
 
   res.json(data);
