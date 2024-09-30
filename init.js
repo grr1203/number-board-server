@@ -8,7 +8,7 @@ async function startBrowser() {
   const newBrowser = await puppeteer.launch({
     headless: false, // 실제 브라우저 띄우기
     defaultViewport: null, // 뷰포트 크기를 브라우저의 창 크기에 맞게 설정
-    args: ['--start-maximized'], // 브라우저 최대화
+    args: ['--kiosk', '--start-maximized'], // 키오스크 모드(탭, 주소표시줄 제거), 브라우저 최대화
     protocolTimeout: 0,
   });
   return newBrowser;
